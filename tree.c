@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <stdbool.h>
+#include "tree.h"
 
 typedef char dado_t;
 typedef struct _no no_t;
@@ -19,13 +21,30 @@ arv_t*cria_arv(dado_t data, arv_t*dir, arv_t*esq){
     novo_no->esq = esq;
     return novo_no;
 }
+arv_t* cria_arv_vazia(void){
+    arv_t* arv = malloc(sizeof(arv_t));
+    assert(arv!=NULL);
+    arv->esq = NULL;
+    arv->dir = NULL;
+    return arv;
+}
+
+void troca_valor (arv_t* arv, dado_t dado){
+    if (arv==NULL){
+        arv->esq = cria_arv_vazia();
+        arv->dir = cria_arv_vazia();
+    }
+    arv->data = dado;
+}
+
 int max (int a,int b){
     if (a >b) return a;
     else return b;
 }
 
+
 int num_nos(arv_t *arv){
-    if (arv == NULL) return 0;
+    if (arv==NULL) return 0;
     return 1 + num_nos(arv->esq) + num_nos(arv->dir);
 }
 

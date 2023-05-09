@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "tree_func.c"
-
+#include "tree.h"
 
 int main(){
     arv_t* arv = cria_arv('a', cria_arv('b', cria_arv('d',NULL,NULL), cria_arv('e',NULL,NULL)),cria_arv('c',NULL, NULL));
-    printf("Num_nos: %d\n", num_nos(arv));
-    printf("Altura: %d\n", altura(arv));
-    printf("Num_nos_folha: %d\n", num_nos_folha(arv));
-    printf("Num_nos_nao_folha: %d\n", num_nos_nao_folha(arv));
-    printf("Nivel_no: %d\n", nivel_no(arv, 'd'));
+    assert(num_nos(arv)==5);
+    assert(altura(arv)==2);
+    assert(num_nos_folha(arv)==3);
+    assert(num_nos_nao_folha(arv)==2);
+    assert(nivel_no(arv, 'd')==2);
+    assert(fator_equilibrio(arv)==1);
     return 0;
 }
