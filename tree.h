@@ -5,11 +5,16 @@ typedef struct _no no_t;
 struct _no;
 typedef no_t arv_t;
 
+//funções cria 
 arv_t*cria_arv(dado_t data, arv_t*dir, arv_t*esq);
 arv_t* cria_arv_vazia(void);
+//função troca que não sei pra que vou usar ainda
 void troca_valor (arv_t* arv, dado_t dado);
+
+//funções auxiliares
 int max (int a,int b);
-bool vazia(arv_t *arv);
+
+//funções da árvore mesmo
 int num_nos(arv_t *arv);
 int altura(arv_t*arv);
 int num_nos_folha(arv_t* arv);
