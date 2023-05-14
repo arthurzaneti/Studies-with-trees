@@ -35,7 +35,14 @@ void fila_destroi(fila f){
 
 arv_t* fila_remove(fila f){
     assert(!fila_vazia(f));
-    return f->vet[--f->num];
+    arv_t *primeiro = f->vet[0];
+
+    for (int i=0; i < f->num -1; i++){
+        f->vet[i] = f->vet[i+1];
+    }
+    f->num--;
+    return primeiro;
+    
 }
 
 void fila_insere(fila f, arv_t* d){

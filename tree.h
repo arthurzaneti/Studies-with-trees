@@ -31,5 +31,6 @@ void pos_ordem_esq(arv_t*arv);
 void pre_ordem_dir(arv_t *arv);
 void em_ordem_dir(arv_t *arv);
 void pos_ordem_dir(arv_t*arv);
-void percorre_largura(arv_t *arv);
+void em_largura_esq(arv_t *arv);
+void em_largura_dir(arv_t *arv);
 #endif

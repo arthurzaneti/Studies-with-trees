@@ -126,12 +126,27 @@ void pos_ordem_dir(arv_t*arv){
     printf("%c",arv->data);
 }
 
-void em_largura_esq(arv_t*arv){
-    fila f;
-    if (arv==NULL)return;
-    fila_remove(f);
+void em_largura_esq(arv_t* arv) {
+    fila f = fila_cria();
+    if (arv == NULL) return;
+    fila_insere(f, arv);
+    while (!fila_vazia(f)) {
+        arv_t* no = fila_remove(f);
+        printf("%c ", no->data);
+        if (no->esq != NULL) fila_insere(f, no->esq);
+        if (no->dir != NULL) fila_insere(f, no->dir); 
     }
-
-fila insere_arv_fila(fila f, arv_t*arv){
-    fila_insere(f,arv);
+    fila_destroi(f);
+}
+void em_largura_dir(arv_t* arv) {
+    fila f = fila_cria();
+    if (arv == NULL) return;
+    fila_insere(f, arv);
+    while (!fila_vazia(f)) {
+        arv_t* no = fila_remove(f);
+        printf("%c ", no->data);
+        if (no->dir != NULL) fila_insere(f, no->dir); 
+        if (no->esq != NULL) fila_insere(f, no->esq);
+    }
+    fila_destroi(f);
 }
