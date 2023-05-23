@@ -10,3 +10,4 @@ int main(){
     em_largura_dir(arv);
     return 0;
 }
+
