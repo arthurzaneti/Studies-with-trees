@@ -3,6 +3,7 @@
         "stdlib.h": "c",
         "assert.h": "c",
         "stdio.h": "c",
-        "tree.h": "c"
+        "tree.h": "c",
+        "abb.h": "c"
     }
 }
